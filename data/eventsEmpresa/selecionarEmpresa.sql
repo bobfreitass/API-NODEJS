@@ -1,0 +1,4 @@
+SELECT
+*
+FROM EMPRESAERP
+WHERE CdEmpresa = @IdEmpresa
