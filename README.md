@@ -1,4 +1,4 @@
-# API NODEJS (Consulta Base ALTERDATA/BIMER em SQLServer)
+# API NODEJS (Consulta Base de Dados ALTERDATA/BIMER em SQLServer)
 
 Estou disponibilizando parte de um trabalho de interação com a Base de Dados do Sistema Bimer da Alterdata. 
 Esta api consulta os dados das principais tabelas do sistema, possibilitando a elaboração de relatórios detalhados de cotação, compra, estoque, movimentação, vendas, titulos a pagar e receber, entre outros mais.
