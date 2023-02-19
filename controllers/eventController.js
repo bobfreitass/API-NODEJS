@@ -146,6 +146,46 @@ const getSelecionaEnderecoCliente = async (req, res, next) => {
 
 }
 
+const getListarUsuarios = async (req, res, next) => {
+
+    try {
+            const events = await eventData.getListarUsuarios();
+            res.send(events);
+    } catch (error) {
+        res.status(400).send(error.message);
+        
+    }
+
+}
+
+
+const getSelecionaUsuario = async (req, res, next) => {
+
+    try {
+        const IdUser = req.params.id;
+        const oneEvent = await eventData.getSelecionaUsuario(IdUser);
+        res.send(oneEvent);
+    } catch (error) {
+        res.status(400).send(error.message);
+        
+    }
+
+}
+
+const getSelecionaEnderecoUsuario  = async (req, res, next) => {
+
+    try {
+        const IdUser = req.params.id;
+        const oneEvent = await eventData.getSelecionaEnderecoUsuario(IdUser);
+        res.send(oneEvent);
+    } catch (error) {
+        res.status(400).send(error.message);
+        
+    }
+
+}
+
+
 
 module.exports = {
     getHelp,
@@ -161,5 +201,9 @@ module.exports = {
 
     getListarClientes,
     getSelecionaCliente,
-    getSelecionaEnderecoCliente
+    getSelecionaEnderecoCliente,
+
+    getListarUsuarios,
+    getSelecionaUsuario,
+    getSelecionaEnderecoUsuario
 };

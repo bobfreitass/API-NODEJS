@@ -163,6 +163,51 @@ const getSelecionaEnderecoCliente = async (IdClient) => {
 }
 
 
+const getListarUsuarios = async () => {
+    try {
+            let pool = await sql.connect(config.sql);
+            const sqlQueries = await utils.loadSqlQueries('eventsUser');
+            const listUsers = await pool.request().query(sqlQueries.listarUsuarios);
+            return listUsers.recordset;
+
+    } catch (error) {
+        return error.message;
+    }
+}
+
+const getSelecionaUsuario = async (IdUsuario) => {
+    try {
+        let pool = await sql.connect(config.sql);
+        const sqlQueries = await utils.loadSqlQueries('eventsUser');
+        const oneEvent = await pool.request()
+                                .input('IdUsuario',sql.Char, IdUsuario)
+                                .query(sqlQueries.selecionaUsuario);
+
+        return oneEvent.recordset;
+
+    } catch (error) {
+        return error.message;
+    }
+}
+
+const getSelecionaEnderecoUsuario = async (IdUsuario) => {
+    try {
+        let pool = await sql.connect(config.sql);
+        const sqlQueries = await utils.loadSqlQueries('eventsUser');
+        const oneEvent = await pool.request()
+                                .input('IdUsuario',sql.Char, IdUsuario)
+                                .query(sqlQueries.selecionaEndereco);
+
+        return oneEvent.recordset;
+
+    } catch (error) {
+        return error.message;
+    }
+}
+
+
+
+
 module.exports = {
     getHelp,
 
@@ -177,5 +222,11 @@ module.exports = {
 
     getListarClientes,
     getSelecionaCliente,
-    getSelecionaEnderecoCliente
+    getSelecionaEnderecoCliente,
+
+    getListarUsuarios,
+    getSelecionaUsuario,
+    getSelecionaEnderecoUsuario
+
+    
 }
