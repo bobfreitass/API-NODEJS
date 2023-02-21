@@ -207,6 +207,64 @@ const getSelecionaEnderecoUsuario = async (IdUsuario) => {
 
 
 
+const getListarProdutos = async () => {
+    try {
+            let pool = await sql.connect(config.sql);
+            const sqlQueries = await utils.loadSqlQueries('eventsProduto');
+            const listProducts = await pool.request().query(sqlQueries.listarProdutos);
+            return listProducts.recordset;
+
+    } catch (error) {
+        return error.message;
+    }
+}
+
+const getSelecionaProduto = async (IdProduto) => {
+    try {
+        let pool = await sql.connect(config.sql);
+        const sqlQueries = await utils.loadSqlQueries('eventsProduto');
+        const oneEvent = await pool.request()
+                                .input('IdProduto',sql.Char, IdProduto)
+                                .query(sqlQueries.selecionaProduto);
+
+        return oneEvent.recordset;
+
+    } catch (error) {
+        return error.message;
+    }
+}
+
+const getListarProdutosKit = async (IdProduto) => {
+    try {
+        let pool = await sql.connect(config.sql);
+        const sqlQueries = await utils.loadSqlQueries('eventsProduto');
+        const oneEvent = await pool.request()
+                                .input('IdProduto',sql.Char, IdProduto)
+                                .query(sqlQueries.listarProdutosKit);
+
+        return oneEvent.recordset;
+
+    } catch (error) {
+        return error.message;
+    }
+}
+
+
+const getSelecionaProdutoSaldo = async (IdProduto,IdPreco) => {
+    try {
+            let pool = await sql.connect(config.sql);
+            const sqlQueries = await utils.loadSqlQueries('eventsProduto');
+            const selecionaProdutoSaldo = await pool.request()
+                                                .input('IdProduto',sql.Char, IdProduto)
+                                                .input('IdPreco',sql.Char, IdPreco)
+                                                .query(sqlQueries.selecionaSaldo);
+            return selecionaProdutoSaldo.recordset;
+
+    } catch (error) {
+        return error.message;
+    }
+}
+
 
 module.exports = {
     getHelp,
@@ -226,7 +284,13 @@ module.exports = {
 
     getListarUsuarios,
     getSelecionaUsuario,
-    getSelecionaEnderecoUsuario
+    getSelecionaEnderecoUsuario,
+
+    getListarProdutos,
+    getSelecionaProduto,
+    getListarProdutosKit,
+    getSelecionaProdutoSaldo
+
 
     
 }

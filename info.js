@@ -31,13 +31,19 @@ const htmlInfo = async () => {
                                 <ul> /ApiClientes/listar </ul>
                                 <ul> /ApiClientes/selecionar/$IdCliente </ul>
                                 <ul> /ApiClientes/selecionarEndereco/$IdCliente </ul>
-                            <li>ApiProdutos</li>
-                            <li><span  class='h4' > ApiPDV </span></li>
+                            <li><span  class='h4' > ApiProdutos </span>
+                                <ul> /ApiProdutos/listar/$IdProduto </ul>
+                                <ul> /ApiProdutos/listarProdutosKit/$IdProduto </ul>
+                                <ul> /ApiProdutos/selecionar/$IdProduto </ul>
+                                <ul> /ApiProdutos/listarSaldos/$IdProduto/$IdPreco </ul>
+                            </li>
+                            <li><span  class='h4' > ApiPDV </span>
                                 <ul> /ApiPDV/listar/$DtInicial/$DtFinal </ul>
                                 <ul> /ApiPDV/selecionar/$IdPDV </ul>
                                 <ul> /ApiPDV/selecionarItem/$IdPDV </ul>
                                 <ul> /ApiPDV/selecionarItemEmpresa/$IdPDV </ul>
                                 <ul> /ApiPDV/selecionarPagamento/$IdPDV </ul>
+                            </li>
                             <li>ApiDocumentos</li>
                             <li>ApiCotacao</li>
                             <li>ApiPDC</li>

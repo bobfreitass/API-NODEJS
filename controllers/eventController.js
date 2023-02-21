@@ -172,7 +172,7 @@ const getSelecionaUsuario = async (req, res, next) => {
 
 }
 
-const getSelecionaEnderecoUsuario  = async (req, res, next) => {
+const getSelecionaEnderecoUsuario = async (req, res, next) => {
 
     try {
         const IdUser = req.params.id;
@@ -185,6 +185,60 @@ const getSelecionaEnderecoUsuario  = async (req, res, next) => {
 
 }
 
+const getListarProdutos = async (req, res, next) => {
+
+    try {
+            const events = await eventData.getListarProdutos();
+            res.send(events);
+    } catch (error) {
+        res.status(400).send(error.message);
+        
+    }
+
+}
+
+const getSelecionaProduto = async (req, res, next) => {
+
+    try {
+        const IdProduto = req.params.id;
+        const oneEvent = await eventData.getSelecionaProduto(IdProduto);
+        res.send(oneEvent);
+    } catch (error) {
+        res.status(400).send(error.message);
+        
+    }
+
+}
+
+const getListarProdutosKit = async (req, res, next) => {
+
+    try {
+        const IdProduto = req.params.id;
+        const oneEvent = await eventData.getListarProdutosKit(IdProduto);
+        res.send(oneEvent);
+    } catch (error) {
+        res.status(400).send(error.message);
+        
+    }
+
+}
+
+const getSelecionaProdutoSaldo = async (req, res, next) => {
+
+    try {
+            const IdProduto = req.params.id1;
+            const IdPreco   = req.params.id2;
+
+            const events = await eventData.getSelecionaProdutoSaldo(IdProduto, IdPreco);
+           // const events = await eventData.getListarProdutosKit(IdProduto);
+
+            res.send(events);
+    } catch (error) {
+        res.status(400).send(error.message);
+        
+    }
+
+}
 
 
 module.exports = {
@@ -205,5 +259,11 @@ module.exports = {
 
     getListarUsuarios,
     getSelecionaUsuario,
-    getSelecionaEnderecoUsuario
+    getSelecionaEnderecoUsuario,
+
+    getListarProdutos,
+    getSelecionaProduto,
+    getListarProdutosKit,
+    getSelecionaProdutoSaldo
+
 };
