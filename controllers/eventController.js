@@ -230,7 +230,6 @@ const getSelecionaProdutoSaldo = async (req, res, next) => {
             const IdPreco   = req.params.id2;
 
             const events = await eventData.getSelecionaProdutoSaldo(IdProduto, IdPreco);
-           // const events = await eventData.getListarProdutosKit(IdProduto);
 
             res.send(events);
     } catch (error) {
@@ -239,6 +238,25 @@ const getSelecionaProdutoSaldo = async (req, res, next) => {
     }
 
 }
+
+
+const getListarVendas = async (req, res, next) => {
+
+    try {
+            const dt1 = req.params.dt1;
+            const dt2 = req.params.dt2;
+            const loja = req.params.loja;
+
+            const events = await eventData.getListarVendas(dt1,dt2,loja);
+            
+           res.send(events);
+    } catch (error) {
+        res.status(400).send(error.message);
+        
+    }
+
+}
+
 
 
 module.exports = {
@@ -264,6 +282,8 @@ module.exports = {
     getListarProdutos,
     getSelecionaProduto,
     getListarProdutosKit,
-    getSelecionaProdutoSaldo
+    getSelecionaProdutoSaldo,
+
+    getListarVendas
 
 };

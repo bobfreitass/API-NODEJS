@@ -18,4 +18,4 @@ const loadSqlQueries = async (folderName) => {
     return queries;
 }
 
-module.exports = { loadSqlQueries}
+module.exports = {loadSqlQueries}

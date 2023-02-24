@@ -20,9 +20,14 @@ module.exports = {
             database: SQL_DATABASE,
             user: SQL_USER,
             password: SQL_PASSWORD,
+            pool: {
+                max: 10,
+                min: 0,
+                idleTimeoutMillis: 30000
+            },            
             options: {
                         encrypt: sqlEncrypt,
-                        enableArithAbort: true
-            }
+                        enableArithAbort: true,
+            }    
     }
 }

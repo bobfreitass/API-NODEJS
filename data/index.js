@@ -266,6 +266,22 @@ const getSelecionaProdutoSaldo = async (IdProduto,IdPreco) => {
 }
 
 
+const getListarVendas = async (dt1,dt2,loja) => {
+    try {
+            let pool = await sql.connect(config.sql);
+            const sqlQueries = await utils.loadSqlQueries('eventsVendaFacil');
+            const resultEvents = await pool.request()
+                                                .input('dt1',sql.Char, dt1)
+                                                .input('dt2',sql.Char, dt2)
+                                                .input('loja',sql.Char, loja)
+                                                .query(sqlQueries.listarVendas);
+            return resultEvents.recordset;
+
+    } catch (error) {
+        return error.message;
+    }
+}
+
 module.exports = {
     getHelp,
 
@@ -289,7 +305,9 @@ module.exports = {
     getListarProdutos,
     getSelecionaProduto,
     getListarProdutosKit,
-    getSelecionaProdutoSaldo
+    getSelecionaProdutoSaldo,
+
+    getListarVendas
 
 
     

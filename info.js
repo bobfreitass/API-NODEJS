@@ -48,6 +48,9 @@ const htmlInfo = async () => {
                             <li>ApiCotacao</li>
                             <li>ApiPDC</li>
                             <li>ApiCD</li>
+                            <li><span  class='h4' > ApiVendaFacil </span>
+                                <ul> /apiVendaFacil/listarVendas/$DtInicial/$DtFinal/$CdEmpresa </ul>
+                            </li>
                         </ul>
                     
                         
@@ -61,17 +64,7 @@ const htmlInfo = async () => {
 
     return html;
 
-
-    html += '<h1></h1>';
-    html += '<h3> <center> ApiEmpresas </center> </h3>';
-    html += '<h3> <center> ApiUsuarios</center> </h3>';
-    html += '<h3> <center> ApiCliente </center> </h3>';
-    html += '<h3> <center> ApiProdutos </center> </h3>';
-    html += '<h3> <center> ApiPDV </center> </h3>';
-    html += '<h3> <center> ApiDocumentos </center> </h3>';
-    html += '<h3> <center> ApiCotacao </center> </h3>';
-    html += '<h3> <center> ApiPDC </center> </h3>';
-    html += '<h3> <center> ApiCD </center> </h3>';
+ 
 
 }
 

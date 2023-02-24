@@ -22,7 +22,8 @@ const   {
                 getListarProdutos,
                 getSelecionaProduto,
                 getListarProdutosKit,
-                getSelecionaProdutoSaldo
+                getSelecionaProdutoSaldo,
+                getListarVendas
         } = eventController;
 
 router.get('', getHelp ); 
@@ -48,6 +49,8 @@ router.get('/apiProdutos/listar', getListarProdutos);
 router.get('/apiProdutos/selecionar/:id', getSelecionaProduto); 
 router.get('/apiProdutos/listarProdutosKit/:id', getListarProdutosKit); 
 router.get('/apiProdutos/listarSaldos/:id1/:id2', getSelecionaProdutoSaldo ); 
+
+router.get('/apiVendaFacil/listarVendas/:dt1/:dt2/:loja', getListarVendas ); 
 
 
 
